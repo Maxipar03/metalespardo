@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = "PARDO METLES | Soluciones metálicas",
+    description = "Fabricación y provisión de componentes metálicos para empresas."
+} = Astro.props;
+---
+
+<!doctype html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width"
+    />
+
+    <title>{title}</title>
+
+    <meta
+        name="description"
+        content={description}
+    />
+</head>
+
+<body class="bg-zinc-950 text-zinc-100 font-industrial">
+
+    <slot />
+
+</body>
+
+</html>

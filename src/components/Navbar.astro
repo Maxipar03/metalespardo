@@ -1,0 +1,209 @@
+<header
+  class="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/90 backdrop-blur-xl"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <nav class="flex h-18 items-center justify-between">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="group flex items-center gap-3"
+        aria-label="Pardo Metales - Inicio"
+      >
+        <span
+          class="flex h-9 w-9 items-center justify-center rounded-lg
+                           border border-white/10 bg-white/[0.04]
+                           text-sm font-black text-white
+                           transition duration-300
+                           group-hover:border-orange-500/50
+                           group-hover:bg-orange-500/10"
+        >
+          PM
+        </span>
+
+        <div class="leading-none">
+          <span
+            class="block text-sm font-bold tracking-[0.16em] text-white sm:text-base"
+          >
+            PARDO
+          </span>
+
+          <span
+            class="mt-1 block text-[9px] font-medium tracking-[0.28em] text-zinc-500"
+          >
+            METALES
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop navigation -->
+      <div class="hidden items-center gap-8 md:flex">
+        <a
+          href="/productos"
+          class="group relative py-2 text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+        >
+          Productos
+
+          <span
+            class="absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0
+                               bg-orange-500 transition-transform duration-300
+                               group-hover:scale-x-100"
+          ></span>
+        </a>
+
+        <a
+          href="/capacidades"
+          class="group relative py-2 text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+        >
+          Capacidades
+
+          <span
+            class="absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0
+                               bg-orange-500 transition-transform duration-300
+                               group-hover:scale-x-100"
+          ></span>
+        </a>
+
+        <a
+          href="/nosotros"
+          class="group relative py-2 text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+        >
+          Nosotros
+
+          <span
+            class="absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0
+                               bg-orange-500 transition-transform duration-300
+                               group-hover:scale-x-100"
+          ></span>
+        </a>
+
+        <a
+          href="/contacto"
+          class="ml-2 inline-flex items-center gap-2 rounded-lg
+                           bg-white px-5 py-2.5 text-sm font-semibold
+                           text-zinc-950 transition-all duration-300
+                           hover:bg-orange-500 hover:text-white
+                           hover:shadow-lg hover:shadow-orange-500/10"
+        >
+          Solicitar cotización
+
+          <svg
+            viewBox="0 0 20 20"
+            fill="none"
+            class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
+          >
+            <path
+              d="M4 10h11M10 5l5 5-5 5"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile button -->
+      <button
+        id="menu-button"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="flex h-10 w-10 items-center justify-center rounded-lg
+                       border border-white/10 bg-white/[0.04]
+                       text-zinc-300 transition
+                       hover:border-white/20 hover:text-white
+                       md:hidden"
+      >
+        <svg
+          id="menu-open-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          class="h-5 w-5"
+        >
+          <path
+            d="M4 7h16M4 12h16M4 17h16"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"></path>
+        </svg>
+
+        <svg
+          id="menu-close-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          class="hidden h-5 w-5"
+        >
+          <path
+            d="M6 6l12 12M18 6L6 18"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile navigation -->
+    <div
+      id="mobile-menu"
+      class="hidden border-t border-white/10 py-5 md:hidden"
+    >
+      <div class="flex flex-col gap-1">
+        <a
+          href="/productos"
+          class="rounded-lg px-4 py-3 text-sm font-medium text-zinc-300 transition hover:bg-white/[0.05] hover:text-white"
+        >
+          Productos
+        </a>
+
+        <a
+          href="/capacidades"
+          class="rounded-lg px-4 py-3 text-sm font-medium text-zinc-300 transition hover:bg-white/[0.05] hover:text-white"
+        >
+          Capacidades
+        </a>
+
+        <a
+          href="/nosotros"
+          class="rounded-lg px-4 py-3 text-sm font-medium text-zinc-300 transition hover:bg-white/[0.05] hover:text-white"
+        >
+          Nosotros
+        </a>
+
+        <a
+          href="/contacto"
+          class="mt-3 flex items-center justify-center rounded-lg
+                           bg-white px-5 py-3 text-sm font-semibold
+                           text-zinc-950 transition hover:bg-orange-500 hover:text-white"
+        >
+          Solicitar cotización
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.querySelector("#menu-button");
+  const mobileMenu = document.querySelector("#mobile-menu");
+  const openIcon = document.querySelector("#menu-open-icon");
+  const closeIcon = document.querySelector("#menu-close-icon");
+
+  menuButton?.addEventListener("click", () => {
+    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+
+    menuButton.setAttribute("aria-expanded", String(!isOpen));
+
+    mobileMenu?.classList.toggle("hidden", isOpen);
+    openIcon?.classList.toggle("hidden", !isOpen);
+    closeIcon?.classList.toggle("hidden", isOpen);
+  });
+
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuButton?.setAttribute("aria-expanded", "false");
+      mobileMenu?.classList.add("hidden");
+      openIcon?.classList.remove("hidden");
+      closeIcon?.classList.add("hidden");
+    });
+  });
+</script>
