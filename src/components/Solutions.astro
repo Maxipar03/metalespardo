@@ -1,0 +1,99 @@
+---
+const solutions = [
+  {
+    title: "Fabricación a medida",
+    description:
+      "Producimos componentes metálicos según tu plano o muestra, en series cortas o largas.",
+    icon: "M4 17L17 4l3 3L7 20H4v-3zM14 7l3 3",
+  },
+  {
+    title: "Provisión de componentes",
+    description:
+      "Abastecemos piezas metálicas de forma continua para que tu línea de producción no se detenga.",
+    icon: "M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3zM12 12l8-4.5M12 12v9M12 12L4 7.5",
+  },
+  {
+    title: "Terminaciones",
+    description:
+      "Pintura, recubrimientos y acabados superficiales listos para el ensamble final.",
+    icon: "M12 3s6 6.5 6 11a6 6 0 11-12 0c0-4.5 6-11 6-11z",
+  },
+  {
+    title: "Control de calidad",
+    description:
+      "Verificamos medidas y acabados antes de cada entrega para que cada lote llegue conforme.",
+    icon: "M9 12l2 2 4-4M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z",
+  },
+];
+---
+
+<section id="soluciones" class="border-t border-white/10 bg-zinc-950">
+  <div class="mx-auto max-w-7xl px-6 py-24 lg:py-32">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Introducción -->
+      <div class="flex flex-col justify-center md:col-span-2 lg:col-span-1 lg:pr-8">
+        <h2
+          class="text-4xl font-semibold tracking-tight text-white md:text-5xl"
+        >
+          Del plano
+          <span class="block text-zinc-500">a la pieza terminada.</span>
+        </h2>
+
+        <p class="mt-6 max-w-md text-lg leading-8 text-zinc-400">
+          Acompañamos a fabricantes de iluminación, mobiliario y equipamiento
+          en cada etapa de sus componentes metálicos.
+        </p>
+      </div>
+
+      <!-- Soluciones -->
+      {
+        solutions.map((solution) => (
+          <article class="group rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:border-orange-500/40">
+            <span class="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-zinc-300 transition duration-300 group-hover:border-orange-500/50 group-hover:bg-orange-500/10 group-hover:text-orange-400">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                class="h-5 w-5"
+                aria-hidden="true"
+              >
+                <path
+                  d={solution.icon}
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+
+            <h3 class="mt-8 text-xl font-semibold tracking-tight text-white">
+              {solution.title}
+            </h3>
+
+            <p class="mt-3 leading-7 text-zinc-400">{solution.description}</p>
+          </article>
+        ))
+      }
+
+      <!-- Llamado a la acción -->
+      <div class="flex flex-col justify-between rounded-2xl border border-zinc-800 bg-zinc-900 p-8">
+        <div>
+          <h3 class="text-xl font-semibold tracking-tight text-white">
+            ¿Tenés un plano o una pieza de muestra?
+          </h3>
+
+          <p class="mt-3 leading-7 text-zinc-400">
+            Envianos los detalles y te respondemos con una cotización.
+          </p>
+        </div>
+
+        <a
+          href="/contacto"
+          class="mt-8 inline-flex w-fit items-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
+        >
+          Solicitar cotización
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

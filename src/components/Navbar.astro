@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import PardoLogo from '../../public/pardoHnosLogo.svg';
+---
+
 <header
   class="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/90 backdrop-blur-xl"
 >
@@ -9,16 +14,7 @@
         class="group flex items-center gap-3"
         aria-label="Pardo Metales - Inicio"
       >
-        <span
-          class="flex h-9 w-9 items-center justify-center rounded-lg
-                           border border-white/10 bg-white/[0.04]
-                           text-sm font-black text-white
-                           transition duration-300
-                           group-hover:border-orange-500/50
-                           group-hover:bg-orange-500/10"
-        >
-          PM
-        </span>
+        <Image src={PardoLogo} class="h-9 w-9" alt="logo" />
 
         <div class="leading-none">
           <span
