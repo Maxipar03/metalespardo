@@ -1,0 +1,22 @@
+---
+import ArrowRight from './icons/ArrowRight.astro';
+
+interface Props { href: string; variant?: 'solid' | 'outline'; class?: string }
+const { href, variant = 'outline', class: className } = Astro.props;
+
+const styles = {
+  solid: 'bg-steel text-ink hover:bg-white',
+  outline: 'border border-white/25 text-fg hover:border-white/60 hover:bg-white/5',
+};
+---
+<a
+  href={href}
+  class:list={[
+    'group inline-flex items-center gap-5 rounded-full px-6 py-3.5 text-[13px] font-medium transition-colors',
+    styles[variant],
+    className,
+  ]}
+>
+  <slot />
+  <ArrowRight class="size-4 transition-transform group-hover:translate-x-0.5" />
+</a>

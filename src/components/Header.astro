@@ -1,0 +1,66 @@
+---
+import Logo from './Logo.astro';
+import { nav, tagline } from '../data/content';
+import { productos } from '../data/content';
+---
+<header class="absolute inset-x-0 top-0 z-30">
+  <div class="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-8 md:px-12">
+    <div class="flex items-center gap-12">
+      <a href="/" aria-label="JEMA — inicio" class="text-fg"><Logo /></a>
+
+      <nav aria-label="Principal" class="hidden items-center gap-10 text-[13px] md:flex">
+        {nav.map((item) =>
+          item.hasMenu ? (
+            <div class="group relative">
+              <a href={item.href} class="inline-flex items-center gap-1.5 text-fg/90 transition-colors hover:text-white">
+                {item.label}
+                <svg class="size-2.5 text-muted transition-transform group-hover:rotate-180 group-focus-within:rotate-180" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m2 3.5 3 3 3-3" /></svg>
+              </a>
+              <ul class="invisible absolute left-0 top-full z-40 mt-4 w-52 translate-y-1 rounded-lg border border-line bg-surface/95 p-2 opacity-0 backdrop-blur transition group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                {productos.map((p) => (
+                  <li><a href={p.href} class="block rounded-md px-3 py-2 text-muted transition-colors hover:bg-white/5 hover:text-fg">{p.title}</a></li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <a href={item.href} class="text-fg/90 transition-colors hover:text-white">{item.label}</a>
+          )
+        )}
+      </nav>
+    </div>
+
+    <p class="hidden items-center gap-4 text-[11px] text-dim lg:flex">
+      <span class="h-px w-24 bg-line" aria-hidden="true"></span>
+      {tagline}
+    </p>
+
+    <button id="menu-toggle" type="button" class="-mr-2 p-2 text-fg md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16" /></svg>
+    </button>
+  </div>
+
+  <nav id="mobile-menu" aria-label="Menú móvil" class="hidden border-y border-line bg-ink/95 px-6 py-4 backdrop-blur md:hidden">
+    <ul class="flex flex-col text-[15px]">
+      {nav.map((item) => (
+        <li><a href={item.href} class="block py-3 text-fg/90">{item.label}</a></li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    btn.setAttribute('aria-label', open ? 'Abrir menú' : 'Cerrar menú');
+    menu?.classList.toggle('hidden', open);
+  });
+  menu?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      btn?.setAttribute('aria-expanded', 'false');
+      menu.classList.add('hidden');
+    })
+  );
+</script>

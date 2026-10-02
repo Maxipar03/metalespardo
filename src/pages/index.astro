@@ -1,26 +1,19 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Hero from "../components/Hero.astro";
-import Solutions from "../components/Solutions.astro"
-import Featured from "../components/Featured.astro"
-import Process from "../components/Process.astro"
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Process from '../components/Process.astro';
+import Solutions from '../components/Solutions.astro';
+import Catalog from '../components/Catalog.astro';
+import Footer from '../components/Footer.astro';
 ---
-
-<Layout
-    title="Soluciones metálicas para la industria"
-    description="Fabricación y provisión de componentes metálicos para fabricantes."
->
-
-    <Navbar />
-
-    <main>
-
-        <Hero />
-        <Solutions/>
-        <Featured />
-        <Process/>
-
-    </main>
-
+<Layout>
+  <Header />
+  <main>
+    <Hero />
+    <Process />
+    <Solutions />
+    <Catalog />
+  </main>
+  <Footer />
 </Layout>

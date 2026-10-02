@@ -1,0 +1,21 @@
+---
+import Section from './Section.astro';
+import SectionHeading from './SectionHeading.astro';
+import ProductCard from './ProductCard.astro';
+import Button from './Button.astro';
+import { productos } from '../data/content';
+---
+<Section id="catalogo">
+  <div class="grid gap-12 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:gap-14">
+    <div class="flex flex-col items-start">
+      <SectionHeading eyebrow="Catálogo" lines={['Productos', 'para cada necesidad.']}>
+        Contamos con un amplio catálogo de perfiles, caños, barras, chapas y accesorios metálicos. También fabricamos piezas a medida según tu proyecto.
+      </SectionHeading>
+      <Button href="#catalogo" class="mt-9 !px-5 !py-3 !text-[12px]">Ver catálogo completo</Button>
+    </div>
+
+    <div class="grid grid-cols-2 gap-2 lg:grid-cols-4">
+      {productos.map((p) => <ProductCard {...p} />)}
+    </div>
+  </div>
+</Section>

@@ -1,0 +1,27 @@
+---
+import ArrowRight from './icons/ArrowRight.astro';
+
+interface Props { title: string; href: string; image: string }
+const { title, href, image } = Astro.props;
+---
+<a
+  href={href}
+  class="group flex flex-col overflow-hidden rounded-md border border-line bg-gradient-to-b from-[#151517] to-[#0d0d0f] transition-colors hover:border-white/20"
+>
+  <div class="aspect-square overflow-hidden p-4">
+    <img
+      src={image}
+      alt=""
+      loading="lazy"
+      class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+      onerror="this.style.display='none'"
+    />
+  </div>
+  <div class="px-4 pb-4">
+    <h3 class="text-[13px] font-medium text-fg">{title}</h3>
+    <div class="mt-4 flex items-center justify-between text-dim">
+      <span class="h-px w-3 bg-current" aria-hidden="true"></span>
+      <ArrowRight class="size-4 transition-all group-hover:translate-x-1 group-hover:text-fg" />
+    </div>
+  </div>
+</a>

@@ -1,43 +1,23 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
 
-interface Props {
-    title?: string;
-    description?: string;
-}
-
+interface Props { title?: string; description?: string }
 const {
-    title = "PARDO METLES | Soluciones metálicas",
-    description = "Fabricación y provisión de componentes metálicos para empresas."
+  title = 'JEMA — Metal que impulsa tus ideas',
+  description = 'Fabricamos y proveemos productos metálicos de alta calidad para empresas de iluminación, mobiliario y construcción.',
 } = Astro.props;
 ---
-
 <!doctype html>
-
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8" />
-
-    <meta
-        name="viewport"
-        content="width=device-width"
-    />
-
-    <link rel="icon" href="pardoHnosLogo.svg" type="image/svg+xml">
-
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0a0b" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
-
-    <meta
-        name="description"
-        content={description}
-    />
-</head>
-
-<body class="bg-zinc-950 text-zinc-100 font-industrial">
-
+  </head>
+  <body class="min-h-screen bg-ink text-fg">
     <slot />
-
-</body>
-
+  </body>
 </html>

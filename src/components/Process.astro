@@ -1,78 +1,24 @@
 ---
-// Edita este arreglo para ajustar las etapas del proceso.
-const steps = [
-  {
-    title: "Preparación del alambrón",
-    description:
-      "Limpiamos el alambrón para quitar óxido y residuos antes de trabajarlo.",
-  },
-  {
-    title: "Lubricación",
-    description:
-      "Aplicamos lubricante para que el material deslice sin dañarse al pasar por los dados.",
-  },
-  {
-    title: "Trefilado",
-    description:
-      "Tiramos del alambre a través de una serie de dados que reducen su diámetro hasta la medida pedida.",
-  },
-  {
-    title: "Recocido",
-    description:
-      "Cuando el material lo requiere, lo tratamos con calor para devolverle flexibilidad.",
-  },
-  {
-    title: "Bobinado y control",
-    description:
-      "Enrollamos el alambre y verificamos el diámetro antes de despacharlo.",
-  },
-];
+import Section from './Section.astro';
+import SectionHeading from './SectionHeading.astro';
+import ProcessIcon from './icons/ProcessIcon.astro';
+import { proceso } from '../data/content';
 ---
+<Section id="proceso">
+  <div class="grid gap-14 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:gap-8">
+    <SectionHeading eyebrow="Nuestro proceso" lines={['Del metal', 'al resultado.']}>
+      Combinamos tecnología, precisión y experiencia para ofrecerte productos confiables, con la calidad y terminación que tu proyecto necesita.
+    </SectionHeading>
 
-<section
-  id="trefilado"
-  class="border-y border-white/10 bg-zinc-900"
->
-  <div class="mx-auto max-w-7xl px-6 py-24 lg:py-32">
-    <div class="max-w-2xl">
-      <h2 class="text-4xl font-semibold tracking-tight text-white md:text-5xl">
-        Del alambrón
-        <span class="block text-zinc-500">al alambre terminado.</span>
-      </h2>
-
-      <p class="mt-6 text-lg leading-8 text-zinc-400">
-        El trefilado reduce el diámetro de un alambre haciéndolo pasar, en
-        frío, por una serie de dados. Así es como lo hacemos en cada lote.
-      </p>
-    </div>
-
-    <ol class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-5">
-      {
-        steps.map((step, index) => (
-          <li class="relative flex gap-4 before:absolute before:-bottom-8 before:left-5 before:top-12 before:w-px before:bg-white/10 last:before:hidden lg:flex-col lg:gap-6 lg:before:-right-8 lg:before:bottom-auto lg:before:left-14 lg:before:top-5 lg:before:h-px lg:before:w-auto">
-            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-zinc-950 text-sm font-semibold text-zinc-300">
-              {index + 1}
-            </span>
-
-            <div>
-              <h3 class="text-lg font-semibold tracking-tight text-white">
-                {step.title}
-              </h3>
-
-              <p class="mt-2 leading-7 text-zinc-400">{step.description}</p>
-            </div>
-          </li>
-        ))
-      }
+    <ol class="grid grid-cols-2 gap-y-10 lg:grid-cols-4">
+      {proceso.map((step, i) => (
+        <li class="border-l border-line px-5 odd:border-l-0 sm:px-6 lg:odd:border-l">
+          <p class="text-[15px] text-dim">{String(i + 1).padStart(2, '0')}</p>
+          <ProcessIcon name={step.icon} class="mt-7 size-11 text-fg/80" />
+          <h3 class="mt-5 text-[15px] font-medium text-fg">{step.title}</h3>
+          <p class="mt-3 text-[13px] leading-relaxed text-muted">{step.text}</p>
+        </li>
+      ))}
     </ol>
-
-    <div class="mt-16">
-      <a
-        href="/contacto"
-        class="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
-      >
-        Consultar por trefilado a medida
-      </a>
-    </div>
   </div>
-</section>
+</Section>
