@@ -1,54 +1,134 @@
+```astro
 ---
 import Button from './Button.astro';
 ---
-<section class="relative isolate overflow-hidden">
-  <!-- Imagen de fondo -->
-  <div class="absolute inset-y-0 right-0 -z-10 w-full opacity-60 lg:w-[64%] lg:opacity-100" aria-hidden="true">
+
+<section
+  id="inicio"
+  class="relative isolate min-h-screen overflow-hidden bg-[#0b0d0e] text-white"
+>
+  <!-- Imagen principal -->
+  <div class="absolute inset-0 -z-20">
     <img
-      src="/hero-perfiles.webp"
-      alt=""
-      width="2000"
-      height="1400"
-      fetchpriority="high"
-      class="h-full w-full object-cover object-right"
-      onerror="this.style.display='none'"
+      src="/industria-metal.png"
+      alt="Proceso industrial de fabricación y trabajo sobre metal"
+      class="h-full w-full object-cover object-center"
     />
-    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/50 to-transparent"></div>
-    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent"></div>
   </div>
 
+  <!-- Overlay -->
+  <div class="absolute inset-0 -z-10 bg-[#080a0b]/70"></div>
+
+  <!-- Gradientes -->
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-r from-[#080a0b] via-[#080a0b]/80 to-[#080a0b]/25"
+  ></div>
+
+  <div
+    class="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-[#080a0b] to-transparent"
+  ></div>
+
+  <!-- Textura sutil -->
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 opacity-[0.035]"
+    style="background-image: url('/images/noise.png');"
+  ></div>
+
   <!-- Contenido -->
-  <div class="mx-auto flex min-h-[640px] max-w-[1440px] flex-col justify-center px-6 pb-20 pt-36 md:px-12 lg:min-h-[760px]">
-    <span class="w-fit rounded-full border border-line bg-white/[0.03] px-3.5 py-1.5 text-[10px] uppercase tracking-[0.22em] text-muted">
-      Metalúrgica industrial
-    </span>
+  <div
+    class="mx-auto flex min-h-screen max-w-[1440px] flex-col justify-center px-6 pb-20 pt-32 sm:px-10 lg:px-16"
+  >
+    <div class="max-w-4xl">
 
-    <h1 class="mt-7 max-w-[14ch] text-[clamp(2.5rem,5vw,4.25rem)] font-medium leading-[1.06] tracking-tight text-fg sm:max-w-none">
-      Soluciones en metal<br class="hidden sm:block" />
-      para la industria<br class="hidden sm:block" />
-      y la iluminación.
-    </h1>
+      <!-- Eyebrow -->
+      <div class="mb-7 flex items-center gap-3">
+        <span class="h-px w-8 bg-white/50"></span>
 
-    <p class="mt-7 max-w-md text-[17px] leading-relaxed text-fg/80">
-      Fabricamos y proveemos productos metálicos de alta calidad para empresas que crean, diseñan y producen.
-    </p>
+        <span
+          class="text-[10px] font-medium uppercase tracking-[0.28em] text-white/60"
+        >
+          Metalúrgica industrial
+        </span>
+      </div>
 
-    <div class="mt-9 flex flex-wrap items-center gap-8">
-      <Button href="#catalogo" variant="solid">Ver catálogo</Button>
-      <a href="#proceso" class="border-b border-line pb-1.5 pr-14 text-[12px] text-muted transition-colors hover:border-white/40 hover:text-fg">
-        Conocé más
-      </a>
+      <!-- Heading -->
+      <h1
+        class="max-w-5xl text-[clamp(3rem,5vw,6.75rem)] font-medium leading-[0.94] tracking-[-0.045em]"
+      >
+        Soluciones en
+        <span class="block text-white/45">
+          metal para la industria.
+        </span>
+      </h1>
+
+      <!-- Description -->
+      <p
+        class="mt-8 max-w-xl text-base leading-7 text-white/65 sm:text-lg"
+      >
+        Fabricamos y proveemos productos metálicos de alta calidad para
+        empresas que crean, diseñan y producen.
+      </p>
+
+      <!-- Actions -->
+      <div class="mt-10 flex flex-wrap items-center gap-7">
+        <Button href="#catalogo" variant="solid">
+          Ver catálogo
+        </Button>
+
+        <a
+          href="#proceso"
+          class="group flex items-center gap-3 text-[12px] uppercase tracking-[0.16em] text-white/60 transition-colors hover:text-white"
+        >
+          Conocé más
+
+          <span
+            class="h-px w-10 bg-white/30 transition-all duration-300 group-hover:w-16 group-hover:bg-white/70"
+          ></span>
+        </a>
+      </div>
     </div>
   </div>
 
-  <!-- Contador decorativo -->
-  <div class="pointer-events-none absolute right-12 top-1/2 hidden -translate-y-1/2 flex-col items-center gap-3 lg:flex" aria-hidden="true">
-    <span class="h-14 w-px bg-line"></span>
-    <p class="text-[15px] text-fg">01<span class="ml-1 text-[9px] text-dim">/ 04</span></p>
-    <span class="h-14 w-px bg-gradient-to-b from-fg/60 to-transparent"></span>
+  <!-- Información inferior -->
+  <div
+    class="absolute bottom-8 left-6 right-6 flex items-end justify-between sm:left-10 sm:right-10 lg:left-16 lg:right-16"
+  >
+    <div class="hidden sm:block">
+      <p class="text-[10px] uppercase tracking-[0.25em] text-white/35">
+        Precisión · Calidad · Industria
+      </p>
+    </div>
+
+    <p class="max-w-[220px] text-right text-[11px] leading-relaxed text-white/45">
+      Materiales que dan forma
+      <br />
+      a tus proyectos.
+    </p>
   </div>
 
-  <p class="absolute bottom-10 right-12 hidden max-w-[11rem] text-[11px] leading-relaxed text-fg/70 lg:block">
-    Materiales que dan forma a tus proyectos.
-  </p>
+  <!-- Indicador lateral -->
+  <div
+    class="pointer-events-none absolute right-10 top-1/2 hidden -translate-y-1/2 flex-col items-center lg:flex"
+    aria-hidden="true"
+  >
+    <span class="h-16 w-px bg-white/20"></span>
+
+    <div class="my-4 flex items-baseline gap-1">
+      <span class="text-sm text-white">01</span>
+      <span class="text-[9px] tracking-widest text-white/30">/04</span>
+    </div>
+
+    <span
+      class="h-16 w-px bg-gradient-to-b from-white/50 to-transparent"
+    ></span>
+  </div>
+
+  <!-- Decoración geométrica -->
+  <div
+    class="pointer-events-none absolute right-[8%] top-[18%] hidden h-32 w-32 rounded-full border border-white/[0.08] lg:block"
+  ></div>
+
+  <div
+    class="pointer-events-none absolute right-[10%] top-[23%] hidden h-20 w-20 rounded-full border border-white/[0.05] lg:block"
+  ></div>
 </section>

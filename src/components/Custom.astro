@@ -1,0 +1,218 @@
+```astro
+---
+import Button from './Button.astro';
+---
+
+<section
+  id="pedidos"
+  class="relative isolate overflow-hidden bg-[#090b0c] py-24 text-white sm:py-32 lg:py-40"
+>
+  <!-- Línea decorativa superior -->
+  <div class="absolute inset-x-0 top-0 h-px bg-white/[0.08]"></div>
+
+  <!-- Glow ambiental -->
+  <div
+    class="pointer-events-none absolute -right-40 top-1/2 -z-10 size-[500px] -translate-y-1/2 rounded-full bg-white/[0.025] blur-3xl"
+    aria-hidden="true"
+  ></div>
+
+  <div class="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
+
+    <!-- Encabezado -->
+    <div class="mb-14 flex items-end justify-between gap-8 lg:mb-20">
+
+      <div>
+        <div class="mb-5 flex items-center gap-3">
+          <span class="h-px w-8 bg-white/40"></span>
+
+          <span
+            class="text-[10px] font-medium uppercase tracking-[0.28em] text-white/45"
+          >
+            Fabricación personalizada
+          </span>
+        </div>
+
+        <h2
+          class="max-w-3xl text-[clamp(2.5rem,5vw,5rem)] font-medium leading-[0.95] tracking-[-0.04em]"
+        >
+          ¿Tenés un proyecto
+          <span class="text-white/40">en mente?</span>
+        </h2>
+      </div>
+
+      <span
+        class="hidden text-[10px] uppercase tracking-[0.2em] text-white/25 lg:block"
+      >
+        02 / 04
+      </span>
+    </div>
+
+
+    <!-- Contenido principal -->
+    <div
+      class="grid overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0d1011] lg:grid-cols-[1.05fr_0.95fr]"
+    >
+
+      <!-- ======================================================
+           IMAGEN
+      ======================================================= -->
+      <div class="relative min-h-[420px] overflow-hidden lg:min-h-[600px]">
+
+        <img
+          src="/images/custom-metal.jpg"
+          alt="Fabricación de una pieza metálica a medida"
+          loading="lazy"
+          class="absolute inset-0 h-full w-full object-cover object-center grayscale-[15%] transition-transform duration-700 hover:scale-[1.03]"
+        />
+
+        <!-- Overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/10"
+        ></div>
+
+        <!-- Etiqueta -->
+        <div
+          class="absolute left-6 top-6 rounded-full border border-white/15 bg-black/20 px-3.5 py-2 backdrop-blur-md sm:left-8 sm:top-8"
+        >
+          <span
+            class="text-[9px] uppercase tracking-[0.22em] text-white/65"
+          >
+            Hecho según especificación
+          </span>
+        </div>
+
+        <!-- Texto sobre imagen -->
+        <div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8">
+          <p class="max-w-sm text-sm leading-6 text-white/65">
+            Desde una pieza única hasta una producción continua,
+            desarrollamos soluciones adaptadas a tus necesidades.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- ======================================================
+           INFORMACIÓN
+      ======================================================= -->
+      <div class="flex flex-col justify-between p-7 sm:p-10 lg:p-14">
+
+        <div>
+
+          <p
+            class="max-w-lg text-lg leading-8 text-white/65 sm:text-xl"
+          >
+            Si necesitás una medida, formato o terminación específica,
+            podemos fabricar tu pedido de acuerdo con las características
+            de tu proyecto.
+          </p>
+
+
+          <!-- Características -->
+          <div class="mt-10 divide-y divide-white/[0.07] border-y border-white/[0.07]">
+
+            <!-- Item -->
+            <div class="flex gap-5 py-5">
+              <span
+                class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-[10px] text-white/50"
+              >
+                01
+              </span>
+
+              <div>
+                <h3 class="text-sm font-medium text-white">
+                  Medidas específicas
+                </h3>
+
+                <p class="mt-1.5 text-xs leading-5 text-white/40">
+                  Adaptamos dimensiones y formatos según las necesidades
+                  de tu proyecto.
+                </p>
+              </div>
+            </div>
+
+
+            <!-- Item -->
+            <div class="flex gap-5 py-5">
+              <span
+                class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-[10px] text-white/50"
+              >
+                02
+              </span>
+
+              <div>
+                <h3 class="text-sm font-medium text-white">
+                  Terminaciones
+                </h3>
+
+                <p class="mt-1.5 text-xs leading-5 text-white/40">
+                  Definimos materiales y terminaciones de acuerdo con
+                  la aplicación final.
+                </p>
+              </div>
+            </div>
+
+
+            <!-- Item -->
+            <div class="flex gap-5 py-5">
+              <span
+                class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-[10px] text-white/50"
+              >
+                03
+              </span>
+
+              <div>
+                <h3 class="text-sm font-medium text-white">
+                  Producción
+                </h3>
+
+                <p class="mt-1.5 text-xs leading-5 text-white/40">
+                  Coordinamos cantidades y requerimientos para cada
+                  pedido.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- CTA -->
+        <div class="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center">
+
+          <Button href="#contacto" variant="solid">
+            Solicitar presupuesto
+          </Button>
+
+          <a
+            href="#proceso"
+            class="group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.16em] text-white/45 transition-colors hover:text-white"
+          >
+            Conocer el proceso
+
+            <span
+              class="h-px w-8 bg-white/25 transition-all duration-300 group-hover:w-12 group-hover:bg-white/60"
+            ></span>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Pie de sección -->
+    <div
+      class="mt-8 flex flex-col gap-3 border-t border-white/[0.07] pt-6 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p class="text-[10px] uppercase tracking-[0.2em] text-white/25">
+        Diseño · Precisión · Fabricación
+      </p>
+
+      <p class="text-xs text-white/30">
+        Contanos qué necesitás y evaluamos tu proyecto.
+      </p>
+    </div>
+
+  </div>
+</section>
+```
