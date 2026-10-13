@@ -1,134 +1,22 @@
-```astro
 ---
-import Button from './Button.astro';
+const whatsapp = 'https://wa.me/5491126790946?text=Hola%2C%20quisiera%20consultar%20por%20trefilado%20de%20ca%C3%B1os.';
 ---
 
-<section
-  id="inicio"
-  class="relative isolate min-h-screen overflow-hidden bg-[#0b0d0e] text-white"
->
-  <!-- Imagen principal -->
-  <div class="absolute inset-0 -z-20">
-    <img
-      src="/industria-metal.png"
-      alt="Proceso industrial de fabricación y trabajo sobre metal"
-      class="h-full w-full object-cover object-center"
-    />
-  </div>
-
-  <!-- Overlay -->
-  <div class="absolute inset-0 -z-10 bg-[#080a0b]/70"></div>
-
-  <!-- Gradientes -->
-  <div
-    class="absolute inset-0 -z-10 bg-gradient-to-r from-[#080a0b] via-[#080a0b]/80 to-[#080a0b]/25"
-  ></div>
-
-  <div
-    class="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-[#080a0b] to-transparent"
-  ></div>
-
-  <!-- Textura sutil -->
-  <div
-    class="pointer-events-none absolute inset-0 -z-10 opacity-[0.035]"
-    style="background-image: url('/images/noise.png');"
-  ></div>
-
-  <!-- Contenido -->
-  <div
-    class="mx-auto flex min-h-screen max-w-[1440px] flex-col justify-center px-6 pb-20 pt-32 sm:px-10 lg:px-16"
-  >
-    <div class="max-w-4xl">
-
-      <!-- Eyebrow -->
-      <div class="mb-7 flex items-center gap-3">
-        <span class="h-px w-8 bg-white/50"></span>
-
-        <span
-          class="text-[10px] font-medium uppercase tracking-[0.28em] text-white/60"
-        >
-          Metalúrgica industrial
-        </span>
-      </div>
-
-      <!-- Heading -->
-      <h1
-        class="max-w-5xl text-[clamp(3rem,5vw,6.75rem)] font-medium leading-[0.94] tracking-[-0.045em]"
-      >
-        Soluciones en
-        <span class="block text-white/45">
-          metal para la industria.
-        </span>
-      </h1>
-
-      <!-- Description -->
-      <p
-        class="mt-8 max-w-xl text-base leading-7 text-white/65 sm:text-lg"
-      >
-        Fabricamos y proveemos productos metálicos de alta calidad para
-        empresas que crean, diseñan y producen.
-      </p>
-
-      <!-- Actions -->
-      <div class="mt-10 flex flex-wrap items-center gap-7">
-        <Button href="#catalogo" variant="solid">
-          Ver catálogo
-        </Button>
-
-        <a
-          href="#proceso"
-          class="group flex items-center gap-3 text-[12px] uppercase tracking-[0.16em] text-white/60 transition-colors hover:text-white"
-        >
-          Conocé más
-
-          <span
-            class="h-px w-10 bg-white/30 transition-all duration-300 group-hover:w-16 group-hover:bg-white/70"
-          ></span>
-        </a>
+<section class="hero" aria-labelledby="hero-title">
+  <img class="hero-image" src="/trefilado-hero-concept.webp" alt="" width="2048" height="1024" fetchpriority="high" />
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="shell hero-inner">
+    <div class="hero-copy">
+      <h1 id="hero-title">Trefilado de caños <span>para iluminación.</span></h1>
+      <p>Caños Pardo trabaja con fabricantes de iluminación y recibe consultas por otros productos y proyectos a medida.</p>
+      <div class="hero-actions">
+        <a class="action action-primary" href={whatsapp} target="_blank" rel="noopener noreferrer">Consultar por WhatsApp <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="#proceso">Conocé el proceso <span aria-hidden="true">↓</span></a>
       </div>
     </div>
-  </div>
-
-  <!-- Información inferior -->
-  <div
-    class="absolute bottom-8 left-6 right-6 flex items-end justify-between sm:left-10 sm:right-10 lg:left-16 lg:right-16"
-  >
-    <div class="hidden sm:block">
-      <p class="text-[10px] uppercase tracking-[0.25em] text-white/35">
-        Precisión · Calidad · Industria
-      </p>
+    <div class="hero-bottom">
+      <span>Precisión que toma forma.</span>
+      <span class="hero-bottom-note">IMAGEN CONCEPTUAL DEL PROCESO</span>
     </div>
-
-    <p class="max-w-[220px] text-right text-[11px] leading-relaxed text-white/45">
-      Materiales que dan forma
-      <br />
-      a tus proyectos.
-    </p>
   </div>
-
-  <!-- Indicador lateral -->
-  <div
-    class="pointer-events-none absolute right-10 top-1/2 hidden -translate-y-1/2 flex-col items-center lg:flex"
-    aria-hidden="true"
-  >
-    <span class="h-16 w-px bg-white/20"></span>
-
-    <div class="my-4 flex items-baseline gap-1">
-      <span class="text-sm text-white">01</span>
-      <span class="text-[9px] tracking-widest text-white/30">/04</span>
-    </div>
-
-    <span
-      class="h-16 w-px bg-gradient-to-b from-white/50 to-transparent"
-    ></span>
-  </div>
-
-  <!-- Decoración geométrica -->
-  <div
-    class="pointer-events-none absolute right-[8%] top-[18%] hidden h-32 w-32 rounded-full border border-white/[0.08] lg:block"
-  ></div>
-
-  <div
-    class="pointer-events-none absolute right-[10%] top-[23%] hidden h-20 w-20 rounded-full border border-white/[0.05] lg:block"
-  ></div>
 </section>

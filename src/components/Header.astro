@@ -1,357 +1,54 @@
-```astro
 ---
-import { nav, tagline, productos } from '../data/content';
+const whatsapp = 'https://wa.me/5491126790946?text=Hola%2C%20quisiera%20consultar%20por%20un%20proyecto.';
+const links = [
+  { label: 'Proceso', href: '#proceso' },
+  { label: 'Productos', href: '#productos' },
+  { label: 'A medida', href: '#a-medida' },
+  { label: 'Empresa', href: '#empresa' },
+];
 ---
 
-<header
-  id="site-header"
-  class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
->
-  <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-    <div
-      id="header-inner"
-      class="flex h-[50px] items-center justify-between border-b border-white/[0.08] transition-all duration-500 md:h-[84px]"
-    >
-
-      <!-- =========================================================
-           BRAND
-      ========================================================== -->
-      <a
-        href="/"
-        aria-label="Pardo Metales — inicio"
-        class="group flex shrink-0 items-center gap-3"
-      >
-
-        <span
-          class="text-[13px] font-semibold uppercase tracking-[0.16em] text-white"
-        >
-          Pardo
-          <span class="font-normal text-white/45">Metales</span>
-        </span>
-      </a>
-
-
-      <!-- =========================================================
-           DESKTOP NAVIGATION
-      ========================================================== -->
-      <nav
-        aria-label="Navegación principal"
-        class="absolute left-1/2 hidden -translate-x-1/2 md:block"
-      >
-        <ul class="flex items-center gap-1">
-
-          {nav.map((item) =>
-            item.hasMenu ? (
-              <li class="group relative">
-                <a
-                  href={item.href}
-                  class="flex items-center gap-2 rounded-full px-4 py-2.5 text-[12px] font-medium tracking-wide text-white/65 transition-all duration-300 hover:bg-white/[0.05] hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/50"
-                >
-                  {item.label}
-
-                  <svg
-                    class="size-3 text-white/40 transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.4"
-                    aria-hidden="true"
-                  >
-                    <path d="m3 4.5 3 3 3-3" />
-                  </svg>
-                </a>
-
-                <!-- Dropdown -->
-                <div
-                  class="invisible absolute left-1/2 top-full w-64 -translate-x-1/2 translate-y-2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
-                >
-                  <div
-                    class="overflow-hidden rounded-xl border border-white/[0.08] bg-[#0b0d0e]/95 p-2 shadow-2xl shadow-black/30 backdrop-blur-xl"
-                  >
-                    <div class="px-3 pb-2 pt-2">
-                      <span
-                        class="text-[9px] font-medium uppercase tracking-[0.2em] text-white/30"
-                      >
-                        Productos
-                      </span>
-                    </div>
-
-                    <ul>
-                      {productos.map((p) => (
-                        <li>
-                          <a
-                            href={p.href}
-                            class="group/item flex items-center justify-between rounded-lg px-3 py-3 text-[12px] text-white/60 transition-colors hover:bg-white/[0.05] hover:text-white"
-                          >
-                            <span>{p.title}</span>
-
-                            <svg
-                              class="size-3 -translate-x-1 opacity-0 transition-all group-hover/item:translate-x-0 group-hover/item:opacity-50"
-                              viewBox="0 0 12 12"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.3"
-                              aria-hidden="true"
-                            >
-                              <path d="M2 6h7M6 3l3 3-3 3" />
-                            </svg>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            ) : (
-              <li>
-                <a
-                  href={item.href}
-                  class="block rounded-full px-4 py-2.5 text-[12px] font-medium tracking-wide text-white/65 transition-all duration-300 hover:bg-white/[0.05] hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/50"
-                >
-                  {item.label}
-                </a>
-              </li>
-            )
-          )}
-
-        </ul>
-      </nav>
-
-
-      <!-- =========================================================
-           RIGHT SIDE
-      ========================================================== -->
-      <div class="flex items-center gap-3">
-
-        <!-- Tagline desktop -->
-        <div class="hidden items-center gap-3 xl:flex">
-          <span
-            class="h-px w-8 bg-white/15"
-            aria-hidden="true"
-          ></span>
-
-          <span
-            class="max-w-[180px] text-right text-[10px] leading-relaxed tracking-wide text-white/35"
-          >
-            {tagline}
-          </span>
-        </div>
-
-        <!-- Mobile menu button -->
-        <button
-          id="menu-toggle"
-          type="button"
-          class="group relative flex size-11 items-center justify-center rounded-full border border-white/10 text-white transition-colors hover:border-white/25 md:hidden"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-          aria-label="Abrir menú"
-        >
-          <span
-            id="menu-icon"
-            class="relative block h-4 w-5"
-            aria-hidden="true"
-          >
-            <span
-              class="absolute left-0 top-1 h-px w-5 bg-current transition-all duration-300"
-            ></span>
-
-            <span
-              class="absolute left-0 top-3 h-px w-3 bg-current transition-all duration-300"
-            ></span>
-          </span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ===========================================================
-       MOBILE MENU
-  ============================================================ -->
-  <div
-    id="mobile-menu"
-    class="pointer-events-none invisible absolute inset-x-0 top-full translate-y-[-8px] border-b border-white/[0.08] bg-[#090b0c]/98 opacity-0 shadow-2xl shadow-black/30 backdrop-blur-2xl transition-all duration-300 md:hidden"
-  >
-    <nav
-      aria-label="Navegación móvil"
-      class="mx-auto max-w-[1440px] px-6 pb-7 pt-3"
-    >
-      <ul>
-
-        {nav.map((item) =>
-          item.hasMenu ? (
-            <li class="border-b border-white/[0.06]">
-              <button
-                type="button"
-                class="mobile-submenu-toggle flex w-full items-center justify-between py-4 text-left text-base text-white/80"
-                aria-expanded="false"
-              >
-                <span>{item.label}</span>
-
-                <svg
-                  class="size-4 text-white/35 transition-transform duration-300"
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.4"
-                  aria-hidden="true"
-                >
-                  <path d="m3 4.5 3 3 3-3" />
-                </svg>
-              </button>
-
-              <ul class="mobile-submenu hidden pb-3 pl-3">
-                {productos.map((p) => (
-                  <li>
-                    <a
-                      href={p.href}
-                      class="block py-2.5 text-sm text-white/45 transition-colors hover:text-white"
-                    >
-                      {p.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ) : (
-            <li class="border-b border-white/[0.06]">
-              <a
-                href={item.href}
-                class="block py-4 text-base text-white/80 transition-colors hover:text-white"
-              >
-                {item.label}
-              </a>
-            </li>
-          )
-        )}
-
-        <!-- Mobile contact -->
-        <li class="pt-5">
-          <a
-            href="#contacto"
-            class="flex w-full items-center justify-between rounded-lg bg-white px-4 py-3.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-black"
-          >
-            Contactanos
-
-            <svg
-              class="size-4"
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.4"
-              aria-hidden="true"
-            >
-              <path d="M3 8h9M8 4l4 4-4 4" />
-            </svg>
-          </a>
-        </li>
-
-      </ul>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header" id="inicio">
+  <div class="shell header-inner">
+    <a class="brand" href="#inicio" aria-label="Caños Pardo, volver al inicio">
+      <img src="/pardoHnosLogo.svg" alt="" width="34" height="44" />
+      <span><strong>CAÑOS PARDO</strong><small>INDUSTRIA METALÚRGICA</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
     </nav>
+    <a class="header-contact" href={whatsapp} target="_blank" rel="noopener noreferrer">
+      Consultar por WhatsApp <span aria-hidden="true">↗</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
   </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Navegación móvil" hidden>
+    {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    <a class="mobile-contact" href={whatsapp} target="_blank" rel="noopener noreferrer">Consultar por WhatsApp <span aria-hidden="true">↗</span></a>
+  </nav>
 </header>
 
-
 <script>
-  const header = document.getElementById('site-header');
-  const headerInner = document.getElementById('header-inner');
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = document.getElementById('menu-icon');
-
-  if (header && headerInner) {
-    const updateHeader = () => {
-      const scrolled = window.scrollY > 24;
-
-      header.classList.toggle('bg-[#090b0c]/80', scrolled);
-      header.classList.toggle('backdrop-blur-xl', scrolled);
-      header.classList.toggle('shadow-lg', scrolled);
-      header.classList.toggle('shadow-black/10', scrolled);
-
-      headerInner.classList.toggle('border-transparent', scrolled);
-      headerInner.classList.toggle('h-[68px]', scrolled);
-      headerInner.classList.toggle('md:h-[72px]', scrolled);
-    };
-
-    updateHeader();
-    window.addEventListener('scroll', updateHeader, { passive: true });
-  }
-
-
-  const setMenuState = (open: boolean) => {
-    if (!menuToggle || !mobileMenu) return;
-
-    menuToggle.setAttribute('aria-expanded', String(open));
-    menuToggle.setAttribute(
-      'aria-label',
-      open ? 'Cerrar menú' : 'Abrir menú'
-    );
-
-    mobileMenu.classList.toggle('pointer-events-none', !open);
-    mobileMenu.classList.toggle('invisible', !open);
-    mobileMenu.classList.toggle('opacity-0', !open);
-    mobileMenu.classList.toggle('translate-y-[-8px]', !open);
-
-    mobileMenu.classList.toggle('visible', open);
-    mobileMenu.classList.toggle('opacity-100', open);
-    mobileMenu.classList.toggle('translate-y-0', open);
-
-    // Animación del icono
-    const lines = menuIcon?.querySelectorAll('span');
-
-    if (lines?.length === 2) {
-      lines[0].classList.toggle('rotate-45', open);
-      lines[0].classList.toggle('translate-y-2', open);
-
-      lines[1].classList.toggle('-rotate-45', open);
-      lines[1].classList.toggle('translate-y-[-1px]', open);
-      lines[1].classList.toggle('w-5', open);
-    }
-
-    document.body.classList.toggle('overflow-hidden', open);
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const menu = document.querySelector<HTMLElement>('.mobile-menu');
+  const closeMenu = () => {
+    if (!toggle || !menu) return;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menú');
+    menu.hidden = true;
   };
-
-
-  menuToggle?.addEventListener('click', () => {
-    const open = menuToggle.getAttribute('aria-expanded') === 'true';
-    setMenuState(!open);
+  toggle?.addEventListener('click', () => {
+    if (!menu) return;
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
+    menu.hidden = isOpen;
   });
-
-
-  // Submenús móviles
-  document.querySelectorAll('.mobile-submenu-toggle').forEach((button) => {
-    button.addEventListener('click', () => {
-      const expanded = button.getAttribute('aria-expanded') === 'true';
-      const submenu = button.nextElementSibling;
-      const arrow = button.querySelector('svg');
-
-      button.setAttribute('aria-expanded', String(!expanded));
-      submenu?.classList.toggle('hidden', expanded);
-      arrow?.classList.toggle('rotate-180', !expanded);
-    });
-  });
-
-
-  // Cerrar al navegar
-  mobileMenu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      setMenuState(false);
-    });
-  });
-
-
-  // Cerrar con Escape
+  menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      setMenuState(false);
-    }
-  });
-
-
-  // Cerrar si se vuelve a desktop
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 768) {
-      setMenuState(false);
-    }
+    if (event.key === 'Escape') closeMenu();
   });
 </script>

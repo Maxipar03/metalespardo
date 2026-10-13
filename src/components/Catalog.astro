@@ -1,21 +1,25 @@
 ---
-import Section from './Section.astro';
-import SectionHeading from './SectionHeading.astro';
-import ProductCard from './ProductCard.astro';
-import Button from './Button.astro';
 import { productos } from '../data/content';
+const whatsapp = 'https://wa.me/5491126790946?text=Hola%2C%20quisiera%20consultar%20por%20otros%20productos.';
+const productWhatsapp = (title: string) => `https://wa.me/5491126790946?text=${encodeURIComponent(`Hola, quisiera consultar por ${title.toLowerCase()}.`)}`;
 ---
-<Section id="catalogo">
-  <div class="grid gap-12 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:gap-14">
-    <div class="flex flex-col items-start">
-      <SectionHeading eyebrow="Catálogo" lines={['Productos', 'para cada necesidad.']}>
-        Contamos con un amplio catálogo de perfiles, caños, barras, chapas y accesorios metálicos. También fabricamos piezas a medida según tu proyecto.
-      </SectionHeading>
-      <Button href="#catalogo" class="mt-9 !px-5 !py-3 !text-[12px]">Ver catálogo completo</Button>
-    </div>
 
-    <div class="grid grid-cols-2 gap-2 lg:grid-cols-4">
-      {productos.map((p) => <ProductCard {...p} />)}
+<section class="catalog-section section-pad" id="productos" aria-labelledby="catalog-title">
+  <div class="shell">
+    <div class="section-intro catalog-intro">
+      <h2 id="catalog-title">El metal abre<br /><span>otras posibilidades.</span></h2>
+      <div>
+        <p>Además del trefilado para iluminación, recibimos consultas por otros productos. La disponibilidad y las especificaciones se confirman para cada pedido.</p>
+        <a class="text-link" href={whatsapp} target="_blank" rel="noopener noreferrer">Consultar disponibilidad <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="catalog-grid">
+      {productos.map((product, index) => (
+        <a class:list={['catalog-item', `catalog-item-${index + 1}`]} href={productWhatsapp(product.title)} target="_blank" rel="noopener noreferrer" aria-label={`Consultar por ${product.title} en WhatsApp`}>
+          <img src={product.image} alt="" loading="lazy" width="800" height="600" />
+          <div class="catalog-item-label"><span>{product.title}</span><span aria-hidden="true">↗</span></div>
+        </a>
+      ))}
     </div>
   </div>
-</Section>
+</section>
