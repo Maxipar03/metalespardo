@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T07:41:12Z",
+  "title": "Design System: Caños Pardo",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "neutral", "displayName": "Carbón" },
+      "graphite": { "role": "neutral", "displayName": "Grafito" },
+      "foreground": { "role": "neutral", "displayName": "Marfil metálico" },
+      "steel": { "role": "neutral", "displayName": "Acero claro" },
+      "copper": { "role": "primary", "displayName": "Cobre atenuado" },
+      "warm-metal": { "role": "neutral", "displayName": "Metal cálido" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Barlow Condensed", "purpose": "Títulos de alto impacto" },
+      "body": { "displayName": "DM Sans", "purpose": "Lectura, navegación y acciones" }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "process-scroll", "value": "requestAnimationFrame + clip-path", "purpose": "Revelar el cambio de sección una vez durante el scroll en escritorio" },
+      { "name": "interactive", "value": "200ms ease", "purpose": "Estados de hover y foco" }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "599px" },
+      { "name": "tablet", "value": "899px" },
+      { "name": "nav-collapse", "value": "1100px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Acción primaria",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Consulta principal por WhatsApp",
+      "html": "<a class=\"ds-action-primary\" href=\"#\">Consultar por WhatsApp <span aria-hidden=\"true\">↗</span></a>",
+      "css": ".ds-action-primary{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-height:54px;padding:14px 21px;background:#d8b086;color:#0b0d0e;font:700 12px 'DM Sans',Arial,sans-serif;text-decoration:none;transition:background .2s ease}.ds-action-primary:hover{background:#f0c69a}.ds-action-primary:focus-visible{outline:2px solid #d8b086;outline-offset:5px}"
+    },
+    {
+      "name": "Acción secundaria",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Acción sobre una superficie clara",
+      "html": "<a class=\"ds-action-dark\" href=\"#\">Consultar un proyecto <span aria-hidden=\"true\">↗</span></a>",
+      "css": ".ds-action-dark{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-height:54px;padding:14px 21px;background:#0b0d0e;color:#f3f1eb;font:700 12px 'DM Sans',Arial,sans-serif;text-decoration:none;transition:background .2s ease}.ds-action-dark:hover{background:#323a3b}.ds-action-dark:focus-visible{outline:2px solid #0b0d0e;outline-offset:5px}"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "description": "Enlaces breves en una línea fina",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Proceso</a><a href=\"#\">Productos</a><a href=\"#\">A medida</a></nav>",
+      "css": ".ds-nav{display:flex;gap:28px;background:#0b0d0e;padding:18px 24px;border-bottom:1px solid #4b5453}.ds-nav a{color:#d5d9d7;font:600 12px 'DM Sans',Arial,sans-serif;text-decoration:none}.ds-nav a:hover{color:#fff}.ds-nav a:focus-visible{outline:2px solid #d8b086;outline-offset:5px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Materia en movimiento",
+    "overview": "Una identidad industrial cinematográfica que explica el trefilado mediante el material, la escala y el movimiento.",
+    "keyCharacteristics": [
+      "Fotografía de metal en primer plano, con sombras profundas y reflejos contenidos.",
+      "Títulos condensados de gran escala y texto de lectura serena.",
+      "Un solo acento cálido reservado para acciones y puntos de atención.",
+      "Explicación del proceso mediante geometría precisa, sin medidas inventadas."
+    ],
+    "rules": [
+      { "name": "The Accent Rule", "body": "El cobre señala acciones o un punto de la explicación; nunca cubre grandes superficies decorativas.", "section": "colors" }
+    ],
+    "dos": [
+      "Mostrar el servicio principal y el contacto desde el primer viewport.",
+      "Etiquetar como conceptuales las imágenes y representaciones creadas para explicar el proceso.",
+      "Mantener afirmaciones comerciales dentro de los datos confirmados por la empresa."
+    ],
+    "donts": [
+      "Evitar estadísticas, certificaciones, años de trayectoria o especificaciones no proporcionados.",
+      "Evitar animaciones repetitivas, efectos decorativos y tarjetas sin función."
+    ]
+  }
+}

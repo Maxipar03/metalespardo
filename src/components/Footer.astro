@@ -1,40 +1,25 @@
 ---
-import Logo from './Logo.astro';
 import { nav, tagline } from '../data/content';
-
-const social = [
-  { label: 'Instagram', href: '#', path: 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 5.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5-2.3v.01' },
-  { label: 'LinkedIn', href: '#', path: 'M4 9v11M4 4.5v.01M9 20V9m0 4a4 4 0 0 1 8 0v7' },
-  { label: 'Email', href: 'mailto:info@jema.com.ar', path: 'M3 6h18v12H3zM3 7l9 6 9-6' },
-];
+const whatsapp = 'https://wa.me/5491126790946?text=Hola%2C%20quisiera%20consultar%20por%20un%20proyecto.';
 ---
-<footer class="border-t border-line">
-  <div class="mx-auto flex max-w-[1440px] flex-col gap-8 px-6 py-10 md:px-12 lg:flex-row lg:items-center lg:justify-between">
-    <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
-      <a href="/" aria-label="JEMA — inicio" class="text-fg"><Logo class="h-[16px]" /></a>
-      <p class="flex items-center gap-4 text-[12px] text-fg/80">
-        <span class="hidden h-px w-14 bg-line sm:block" aria-hidden="true"></span>
-        {tagline}
-      </p>
-    </div>
 
-    <div class="flex flex-wrap items-center gap-x-10 gap-y-5">
-      <nav aria-label="Pie de página">
-        <ul class="flex flex-wrap gap-x-8 gap-y-2 text-[11px] text-muted">
-          {nav.map((item) => (
-            <li><a href={item.href} class="transition-colors hover:text-fg">{item.label}</a></li>
-          ))}
-        </ul>
-      </nav>
-      <ul class="flex items-center gap-5 text-fg/80">
-        {social.map((s) => (
-          <li>
-            <a href={s.href} aria-label={s.label} class="block transition-colors hover:text-white">
-              <svg class="size-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={s.path} /></svg>
-            </a>
-          </li>
-        ))}
-      </ul>
+<footer class="footer" id="contacto">
+  <div class="shell">
+    <div class="footer-main">
+      <h2>Tu proyecto empieza <span>con una consulta.</span></h2>
+      <p>Contanos qué necesitás. Estamos para conversar sobre trefilado de caños, otros productos y trabajos a medida.</p>
+      <div class="footer-actions">
+        <a class="action action-primary" href={whatsapp} target="_blank" rel="noopener noreferrer">Escribir por WhatsApp <span aria-hidden="true">↗</span></a>
+        <a class="action action-outline" href="mailto:Javierpardo08@gmail.com?subject=Consulta%20para%20Ca%C3%B1os%20Pardo">Enviar un correo <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <nav class="footer-nav" aria-label="Enlaces del pie de página">
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="footer-meta">
+      <a class="footer-brand" href="#inicio"><img src="/pardoHnosLogo.svg" alt="" width="28" height="36" /><span>CAÑOS PARDO<small>{tagline}.</small></span></a>
+      <div class="footer-contact"><a href="https://wa.me/5491126790946" target="_blank" rel="noopener noreferrer">+54 9 11 2679 0946</a><a href="mailto:Javierpardo08@gmail.com">Javierpardo08@gmail.com</a></div>
+      <span class="copyright">© {new Date().getFullYear()} Caños Pardo</span>
     </div>
   </div>
 </footer>

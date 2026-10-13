@@ -5,17 +5,14 @@ import SolutionCard from './SolutionCard.astro';
 import Button from './Button.astro';
 import { soluciones } from '../data/content';
 ---
-<Section id="soluciones">
-  <div class="grid gap-12 xl:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] xl:gap-14">
-    <div class="flex flex-col items-start">
-      <SectionHeading eyebrow="Soluciones" lines={['Metal para', 'cada proyecto.']}>
-        Abastecemos a empresas de iluminación, mobiliario, construcción y más. Adaptamos nuestras soluciones a tus necesidades, con asesoramiento técnico y entregas eficientes.
+<Section id="soluciones" class="py-24 md:py-36">
+  <div class="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(18rem,.85fr)] md:items-center md:gap-16">
+    <div>
+      <SectionHeading lines={['Trefilado para', 'fabricantes de iluminación.']}>
+        El trefilado de tubos es nuestra oferta central. Para otras necesidades, contanos qué requiere tu proyecto.
       </SectionHeading>
-      <Button href="#soluciones" class="mt-9">Ver soluciones</Button>
+      <Button href="#contacto" class="mt-8">Hablar sobre un proyecto</Button>
     </div>
-
-    <div class="grid grid-cols-2 gap-2 lg:grid-cols-4">
-      {soluciones.map((s) => <SolutionCard {...s} />)}
-    </div>
+    {soluciones.map((s) => <SolutionCard {...s} />)}
   </div>
 </Section>
