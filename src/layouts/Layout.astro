@@ -4,11 +4,11 @@ import '../styles/global.css';
 interface Props { title?: string; description?: string }
 const {
   title = 'Caños Pardo — Precisión que toma forma',
-  description = 'Trefilado de caños para fabricantes de iluminación. Consultá a Caños Pardo por otros productos y trabajos a medida.',
+  description = 'Trefilado y roscado de caños. Trabajamos con fabricantes de iluminación y proyectos a medida. Consultá a Caños Pardo por tu próximo trabajo.',
 } = Astro.props;
 ---
 <!doctype html>
-<html lang="es-AR">
+<html lang="es-AR" class="scheme-dark font-body leading-[normal] bg-ink text-fg [font-synthesis:none] [text-rendering:optimizeLegibility] [caret-color:#d8b086] [&_*]:box-border scroll-smooth motion-reduce:scroll-auto! [scrollbar-color:#5b6262_#0b0d0e] [&_button]:[-webkit-tap-highlight-color:transparent] [&_a]:[-webkit-tap-highlight-color:transparent] [&_button]:cursor-pointer [&_img]:block [&_img]:max-w-full selection:bg-copper selection:text-[#121516] [&_:where(:focus-visible)]:[outline:2px_solid_#d8b086] [&_:where(:focus-visible)]:outline-offset-[5px] [&_[hidden]]:hidden! motion-reduce:[&_*]:scroll-auto! motion-reduce:[&_*]:[animation-duration:.01ms]! motion-reduce:[&_*]:[transition-duration:.01ms]! motion-reduce:[&_*::before]:scroll-auto! motion-reduce:[&_*::before]:[animation-duration:.01ms]! motion-reduce:[&_*::before]:[transition-duration:.01ms]! motion-reduce:[&_*::after]:scroll-auto! motion-reduce:[&_*::after]:[animation-duration:.01ms]! motion-reduce:[&_*::after]:[transition-duration:.01ms]!">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,7 +24,7 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="m-0 min-w-80 [-webkit-tap-highlight-color:transparent] [&_section[id]]:scroll-mt-24 [&_footer[id]]:scroll-mt-24">
     <slot />
   </body>
 </html>

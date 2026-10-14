@@ -8,11 +8,11 @@ web
 
 ## Users
 
-Industrial companies and manufacturers, especially manufacturers in the lighting industry. Visitors are evaluating tube drawing, other products, or custom services and may want to discuss a requirement or request a quote.
+Industrial companies and manufacturers, especially manufacturers in the lighting industry. Visitors are evaluating tube drawing, tube threading, other products, or custom services and may want to discuss a requirement or request a quote.
 
 ## Product Purpose
 
-Caños Pardo handles tube drawing for the lighting manufacturing industry. This is its most widely used offering. The company also sells other products and provides custom services. The website should help industrial buyers understand the offering and contact the company about their needs.
+Caños Pardo handles tube drawing for the lighting manufacturing industry and tube threading. Drawing is its most widely used offering; both processes must be prominent on the website. The company also sells other products and provides custom services. The website should help industrial buyers understand the offering and contact the company about their needs.
 
 ## Positioning
 
@@ -24,7 +24,7 @@ The site is a Spanish-language web presence for industrial buyers. Its current h
 
 ## Capabilities and Constraints
 
-- Confirmed core capability: tube drawing for lighting manufacturers.
+- Confirmed core capabilities: tube drawing for lighting manufacturers and tube threading (threading confirmed by the user on 2026-10-13). Both services must be prominent on the homepage.
 - Confirmed additional scope: other products and custom services; exact catalog and service list remain open.
 - Confirmed additional products: caños estructurales, caños redondos, chapas, and barras macizas (confirmed by the user on 2026-10-12).
 - Service area, production specifications, certifications, company history, and differentiators are undecided.

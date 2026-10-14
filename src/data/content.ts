@@ -1,7 +1,8 @@
 export const tagline = 'Precisión que toma forma';
 
 export const nav = [
-  { label: 'Proceso', href: '#proceso' },
+  { label: 'Trefilado', href: '#proceso' },
+  { label: 'Roscado', href: '#roscado' },
   { label: 'Productos', href: '#productos' },
   { label: 'A medida', href: '#a-medida' },
   { label: 'Empresa', href: '#empresa' },

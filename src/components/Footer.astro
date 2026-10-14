@@ -3,23 +3,23 @@ import { nav, tagline } from '../data/content';
 const whatsapp = 'https://wa.me/5491126790946?text=Hola%2C%20quisiera%20consultar%20por%20un%20proyecto.';
 ---
 
-<footer class="footer" id="contacto">
-  <div class="shell">
-    <div class="footer-main">
+<footer class="[&_h2]:m-0 [&_h2]:font-display [&_h2]:font-semibold [&_h2]:tracking-[-.025em] [&_h2]:text-balance [&_h2]:text-[clamp(62px,_7vw,_106px)] [&_h2]:leading-[.9] [&_h2]:uppercase scroll-mt-0 [padding:clamp(105px,_10vw,_165px)_0_38px] bg-[#080a0b] [&_h2_span]:block [&_h2_span]:text-copper max-[600px]:pt-[95px] max-[600px]:[&_h2]:text-[clamp(56px,_14vw,_82px)]" id="contacto">
+  <div class="w-[min(100%_-_96px,_1440px)] mx-auto max-[900px]:w-[min(100%_-_48px,_720px)] max-[600px]:w-[min(100%_-_40px,_500px)]">
+    <div class="max-w-[1050px] pb-[clamp(100px,_10vw,_160px)] [&_>_p]:max-w-155 [&_>_p]:[margin:32px_0_0] [&_>_p]:text-[#c2c9c6] [&_>_p]:text-[15px] [&_>_p]:leading-[1.8] max-[600px]:pb-20 max-[600px]:[&_>_p]:text-[14px]">
       <h2>Tu proyecto empieza <span>con una consulta.</span></h2>
-      <p>Contanos qué necesitás. Estamos para conversar sobre trefilado de caños, otros productos y trabajos a medida.</p>
-      <div class="footer-actions">
-        <a class="action action-primary" href={whatsapp} target="_blank" rel="noopener noreferrer">Escribir por WhatsApp <span aria-hidden="true">↗</span></a>
-        <a class="action action-outline" href="mailto:Javierpardo08@gmail.com?subject=Consulta%20para%20Ca%C3%B1os%20Pardo">Enviar un correo <span aria-hidden="true">↗</span></a>
+      <p>Contanos qué necesitás. Estamos para conversar sobre trefilado y roscado de caños, otros productos y trabajos a medida.</p>
+      <div class="flex flex-wrap gap-[14px] mt-8 max-[600px]:flex-col max-[600px]:items-stretch">
+        <a class="action inline-flex min-h-[54px] items-center justify-between gap-7 py-[14px] px-[21px] text-[12px] font-bold tracking-[.01em] [transition:background_.22s_ease,_color_.22s_ease,_border-color_.22s_ease] [&_span]:text-[19px] [&_span]:font-normal [&_span]:leading-[1] bg-copper text-[#101415] hover:bg-[#f0c69a]" href={whatsapp} target="_blank" rel="noopener noreferrer">Escribir por WhatsApp <span aria-hidden="true">↗</span></a>
+        <a class="action inline-flex min-h-[54px] items-center justify-between gap-7 py-[14px] px-[21px] text-[12px] font-bold tracking-[.01em] [transition:background_.22s_ease,_color_.22s_ease,_border-color_.22s_ease] [&_span]:text-[19px] [&_span]:font-normal [&_span]:leading-[1] border border-[#9fa7a5] text-fg hover:bg-fg hover:text-[#101415]" href="mailto:Javierpardo08@gmail.com?subject=Consulta%20para%20Ca%C3%B1os%20Pardo">Enviar un correo <span aria-hidden="true">↗</span></a>
       </div>
     </div>
-    <nav class="footer-nav" aria-label="Enlaces del pie de página">
+    <nav class="flex flex-wrap gap-[10px_28px] [padding:25px_0] border-t border-[#4b5453] [&_a]:text-[#c7cecb] [&_a]:text-[11px] [&_a:hover]:text-white" aria-label="Enlaces del pie de página">
       {nav.map((item) => <a href={item.href}>{item.label}</a>)}
     </nav>
-    <div class="footer-meta">
-      <a class="footer-brand" href="#inicio"><img src="/pardoHnosLogo.svg" alt="" width="28" height="36" /><span>CAÑOS PARDO<small>{tagline}.</small></span></a>
-      <div class="footer-contact"><a href="https://wa.me/5491126790946" target="_blank" rel="noopener noreferrer">+54 9 11 2679 0946</a><a href="mailto:Javierpardo08@gmail.com">Javierpardo08@gmail.com</a></div>
-      <span class="copyright">© {new Date().getFullYear()} Caños Pardo</span>
+    <div class="flex justify-between items-end gap-10 pt-[26px] border-t border-[#343c3b] max-[600px]:flex-col max-[600px]:items-start max-[600px]:gap-7">
+      <a class="[&_span]:block [&_span]:text-[11px] [&_span]:tracking-[.22em] [&_span]:font-bold [&_span]:whitespace-nowrap flex gap-[13px] items-center [&_img]:w-[27px] [&_img]:h-9 [&_small]:block [&_small]:mt-[6px] [&_small]:text-[#a8b1ad] [&_small]:text-[10px] [&_small]:font-normal [&_small]:tracking-[.04em]" href="#inicio"><img src="/pardoHnosLogo.svg" alt="" width="28" height="36" /><span>CAÑOS PARDO<small>{tagline}.</small></span></a>
+      <div class="flex flex-wrap gap-[8px_24px] text-[#c7cecb] text-[11px] [&_a]:underline [&_a]:[text-decoration-color:#65706c] [&_a]:[text-underline-offset:5px] [&_a:hover]:text-white max-[600px]:flex-col"><a href="https://wa.me/5491126790946" target="_blank" rel="noopener noreferrer">+54 9 11 2679 0946</a><a href="mailto:Javierpardo08@gmail.com">Javierpardo08@gmail.com</a></div>
+      <span class="text-[#8f9995] text-[10px] whitespace-nowrap">© {new Date().getFullYear()} Caños Pardo</span>
     </div>
   </div>
 </footer>

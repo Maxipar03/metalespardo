@@ -1,54 +1,84 @@
 ---
-const whatsapp = 'https://wa.me/5491126790946?text=Hola%2C%20quisiera%20consultar%20por%20un%20proyecto.';
-const links = [
-  { label: 'Proceso', href: '#proceso' },
-  { label: 'Productos', href: '#productos' },
-  { label: 'A medida', href: '#a-medida' },
-  { label: 'Empresa', href: '#empresa' },
-];
+import { nav } from '../data/content';
+import ArrowRight from './icons/ArrowRight.astro';
+const whatsapp = 'https://wa.me/5491126790946?text=Hola%2C%20quisiera%20consultar%20por%20trefilado%20o%20roscado%20de%20ca%C3%B1os.';
+const links = nav.filter(item => item.href !== '#contacto');
 ---
 
-<a class="skip-link" href="#contenido">Saltar al contenido</a>
-<header class="site-header" id="inicio">
-  <div class="shell header-inner">
-    <a class="brand" href="#inicio" aria-label="Caños Pardo, volver al inicio">
-      <img src="/pardoHnosLogo.svg" alt="" width="34" height="44" />
-      <span><strong>CAÑOS PARDO</strong><small>INDUSTRIA METALÚRGICA</small></span>
+<a class="fixed left-3 top-3 z-100 -translate-y-[150%] bg-fg px-5 py-3 text-ink focus:translate-y-0" href="#contenido">Saltar al contenido</a>
+<header data-header data-scrolled="false" data-open="false" class="group/header fixed inset-x-0 top-0 z-40 border-b border-white/15 bg-ink/85 text-fg transition-[background-color,border-color] duration-300 data-[scrolled=true]:border-white/10 data-[scrolled=true]:bg-ink data-[open=true]:bg-ink">
+  <div class="mx-auto flex h-24 w-[min(100%_-_96px,1440px)] items-center gap-8 transition-[height] duration-300 group-data-[scrolled=true]/header:h-19 max-[900px]:h-20 max-[900px]:w-[min(100%_-_48px,720px)] max-[600px]:h-19 max-[600px]:w-[calc(100%_-_40px)]">
+    <a class="flex shrink-0 items-center gap-3" href="#inicio" aria-label="Caños Pardo, volver al inicio">
+      <img class="h-10 w-8 object-contain max-[600px]:h-9 max-[600px]:w-7" src="/pardoHnosLogo.svg" alt="" width="32" height="40" />
+      <span><strong class="block whitespace-nowrap text-[13px] font-bold tracking-[.19em] max-[600px]:text-[11px]">CAÑOS PARDO</strong><small class="mt-1.5 block text-[8px] tracking-[.19em] text-steel">INDUSTRIA METALÚRGICA</small></span>
     </a>
-    <nav class="desktop-nav" aria-label="Navegación principal">
-      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    <nav class="ml-auto flex items-center gap-[clamp(18px,2vw,32px)] max-[1101px]:hidden" aria-label="Navegación principal">
+      {links.map(link => <a data-nav-link class="group/link relative flex min-h-11 items-center text-xs font-medium text-steel transition-colors duration-200 hover:text-fg aria-[current=location]:text-copper" href={link.href}>{link.label}<span class="absolute inset-x-0 bottom-1 h-px origin-left scale-x-0 bg-copper transition-transform duration-300 group-hover/link:scale-x-100 group-aria-[current=location]/link:scale-x-100" aria-hidden="true"></span></a>)}
     </nav>
-    <a class="header-contact" href={whatsapp} target="_blank" rel="noopener noreferrer">
-      Consultar por WhatsApp <span aria-hidden="true">↗</span>
-    </a>
-    <button class="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
-      <span></span><span></span>
+    <a class="group ml-3 inline-flex min-h-11 shrink-0 items-center gap-6 border border-copper/60 px-4 text-[11px] font-bold text-copper transition-colors duration-200 hover:bg-copper hover:text-ink max-[1101px]:ml-auto max-[600px]:hidden" href={whatsapp} target="_blank" rel="noopener noreferrer">Consultar un proyecto<ArrowRight class="size-4 -rotate-45 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></a>
+    <button data-menu-toggle class="group/toggle relative ml-auto hidden size-11 shrink-0 items-center justify-center border border-white/30 transition-colors hover:border-copper hover:text-copper max-[1101px]:flex min-[600px]:ml-0" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
+      <span class="absolute h-px w-5 -translate-y-1 bg-current transition-transform duration-200 group-aria-expanded/toggle:translate-y-0 group-aria-expanded/toggle:rotate-45"></span>
+      <span class="absolute h-px w-5 translate-y-1 bg-current transition-transform duration-200 group-aria-expanded/toggle:translate-y-0 group-aria-expanded/toggle:-rotate-45"></span>
     </button>
   </div>
-  <nav class="mobile-menu" id="mobile-menu" aria-label="Navegación móvil" hidden>
-    {links.map((link) => <a href={link.href}>{link.label}</a>)}
-    <a class="mobile-contact" href={whatsapp} target="_blank" rel="noopener noreferrer">Consultar por WhatsApp <span aria-hidden="true">↗</span></a>
+  <nav id="mobile-menu" class="absolute inset-x-0 top-full max-h-[calc(100dvh_-_80px)] overflow-y-auto border-b border-white/20 bg-ink px-6 pb-7 pt-3 min-[1101px]:hidden" aria-label="Navegación móvil" hidden>
+    <div class="mx-auto max-w-180">
+      {links.map(link => <a data-nav-link class="group flex min-h-14 items-center justify-between border-b border-white/15 py-3 font-display text-3xl uppercase transition-colors hover:text-copper aria-[current=location]:text-copper" href={link.href}>{link.label}<ArrowRight class="size-5 text-copper transition-transform group-hover:translate-x-1" /></a>)}
+      <a class="mt-6 flex min-h-13 items-center justify-between gap-4 bg-copper px-5 py-4 text-xs font-bold text-ink" href={whatsapp} target="_blank" rel="noopener noreferrer">Consultar por WhatsApp<ArrowRight class="size-4 -rotate-45" /></a>
+    </div>
   </nav>
 </header>
 
 <script>
-  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
-  const menu = document.querySelector<HTMLElement>('.mobile-menu');
-  const closeMenu = () => {
-    if (!toggle || !menu) return;
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Abrir menú');
-    menu.hidden = true;
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.querySelector<HTMLElement>('#mobile-menu');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const desktop = window.matchMedia('(min-width: 1101px)');
+  let menuAnimation: Animation | undefined;
+  let open = false;
+  const setMenu = (next: boolean, returnFocus = false) => {
+    if (!header || !toggle || !menu || next === open) return;
+    open = next;
+    menuAnimation?.cancel();
+    header.dataset.open = String(open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    menu.inert = !open;
+    if (open) menu.hidden = false;
+    if (reducedMotion.matches) menu.hidden = !open;
+    else {
+      menuAnimation = menu.animate(open
+        ? [{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }, { opacity: 1, clipPath: 'inset(0 0 0% 0)' }]
+        : [{ opacity: 1 }, { opacity: 0 }],
+        { duration: open ? 320 : 150, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' });
+      menuAnimation.onfinish = () => { menu.hidden = !open; };
+    }
+    if (returnFocus) toggle.focus();
   };
-  toggle?.addEventListener('click', () => {
-    if (!menu) return;
-    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!isOpen));
-    toggle.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
-    menu.hidden = isOpen;
-  });
-  menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeMenu();
-  });
+  toggle?.addEventListener('click', () => setMenu(!open));
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false, open); });
+  document.addEventListener('click', event => { if (open && event.target instanceof Node && !header?.contains(event.target)) setMenu(false); });
+  document.addEventListener('focusin', event => { if (open && event.target instanceof Node && !header?.contains(event.target)) setMenu(false); });
+  desktop.addEventListener('change', () => { if (desktop.matches) setMenu(false); });
+  let scheduled = false;
+  const sections = [...document.querySelectorAll<HTMLElement>('main section[id], footer[id]')];
+  const navLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]')];
+  const updateHeader = () => {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => {
+      if (header) header.dataset.scrolled = String(window.scrollY > 48);
+      const current = sections.filter(section => section.getBoundingClientRect().top <= 160).at(-1)?.id;
+      navLinks.forEach(link => {
+        if (link.hash === `#${current}`) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+      scheduled = false;
+    });
+  };
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('resize', updateHeader);
+  updateHeader();
 </script>

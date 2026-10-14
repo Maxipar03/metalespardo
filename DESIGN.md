@@ -1,6 +1,6 @@
 ---
 name: Caños Pardo
-description: Materia en movimiento para una metalúrgica enfocada en trefilado de caños
+description: Materia en movimiento para una metalúrgica enfocada en trefilado y roscado de caños
 colors:
   ink: "#0b0d0e"
   graphite: "#171b1c"
@@ -88,7 +88,10 @@ Botones, paneles y recortes usan esquinas rectas. Las líneas finas separan cont
 - **Acción secundaria:** contorno claro o enlace subrayado, según el contexto.
 - **Producto:** fotografía con rótulo inferior; toda la superficie abre una consulta específica en WhatsApp.
 - **Proceso:** diagrama SVG geométrico que revela el material durante el scroll en escritorio. Permanece completo y estático en móvil o con movimiento reducido.
-- **Menú móvil:** navegación desplegable con cierre por enlace o tecla Escape.
+- **Roscado:** sección propia con esquema geométrico conceptual; el avance de la herramienta y la aparición de la rosca se vinculan al scroll. No implica medidas ni tipos de rosca disponibles.
+- **Header:** navegación fija que se compacta al bajar, con accesos independientes a trefilado y roscado y estado de sección activa.
+- **Menú móvil:** navegación desplegable animada con cierre por enlace, clic exterior o tecla Escape y devolución del foco al botón al usar Escape.
+- **Movimiento:** diagramas ligados al scroll con interpolación suave; se detienen fuera de pantalla y muestran el resultado completo con movimiento reducido.
 
 ## Do's and Don'ts
 

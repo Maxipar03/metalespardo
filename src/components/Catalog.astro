@@ -1,23 +1,29 @@
 ---
 import { productos } from '../data/content';
+const productLayouts = [
+  'col-span-7 min-h-[470px] max-[900px]:min-h-[330px] max-[600px]:col-span-1 max-[600px]:min-h-[235px]',
+  'col-span-5 min-h-[470px] max-[900px]:min-h-[330px] max-[600px]:col-span-1 max-[600px]:min-h-[235px]',
+  'col-span-5 max-[600px]:col-span-1 max-[600px]:min-h-[235px]',
+  'col-span-7 max-[600px]:col-span-1 max-[600px]:min-h-[235px]'
+];
 const whatsapp = 'https://wa.me/5491126790946?text=Hola%2C%20quisiera%20consultar%20por%20otros%20productos.';
 const productWhatsapp = (title: string) => `https://wa.me/5491126790946?text=${encodeURIComponent(`Hola, quisiera consultar por ${title.toLowerCase()}.`)}`;
 ---
 
-<section class="catalog-section section-pad" id="productos" aria-labelledby="catalog-title">
-  <div class="shell">
-    <div class="section-intro catalog-intro">
+<section class="bg-[#171b1c] py-[clamp(100px,_11vw,_180px)] max-[600px]:py-23" id="productos" aria-labelledby="catalog-title">
+  <div class="w-[min(100%_-_96px,_1440px)] mx-auto max-[900px]:w-[min(100%_-_48px,_720px)] max-[600px]:w-[min(100%_-_40px,_500px)]">
+    <div class="[&_h2]:m-0 [&_h2]:font-display [&_h2]:font-semibold [&_h2]:tracking-[-.025em] [&_h2]:text-balance [&_h2]:text-[clamp(55px,_5.6vw,_86px)] [&_h2]:leading-[.96] [&_h2]:uppercase flex justify-between items-end gap-15 [&_h2_span]:text-[#8c9695] [&_p]:max-w-[470px] [&_p]:m-0 [&_p]:text-[#c0c7c4] [&_p]:text-[15px] [&_p]:leading-[1.8] max-[900px]:block max-[900px]:[&_p]:mt-[26px] max-[600px]:[&_h2]:text-[clamp(51px,_12vw,_70px)] max-[600px]:[&_p]:text-[14px] [&_>_div]:max-w-[470px] [&_.text-link]:mt-[22px] [&_.text-link]:text-[#e9ece8]">
       <h2 id="catalog-title">El metal abre<br /><span>otras posibilidades.</span></h2>
       <div>
-        <p>Además del trefilado para iluminación, recibimos consultas por otros productos. La disponibilidad y las especificaciones se confirman para cada pedido.</p>
-        <a class="text-link" href={whatsapp} target="_blank" rel="noopener noreferrer">Consultar disponibilidad <span aria-hidden="true">↗</span></a>
+        <p>Además del trefilado y el roscado de caños, recibimos consultas por otros productos. La disponibilidad y las especificaciones se confirman para cada pedido.</p>
+        <a class="text-link inline-flex min-h-[46px] items-center gap-[18px] border-b border-[currentColor] text-[12px] font-bold [transition:color_.2s_ease] hover:text-copper [&_span]:text-[17px] [&_span]:font-normal" href={whatsapp} target="_blank" rel="noopener noreferrer">Consultar disponibilidad <span aria-hidden="true">↗</span></a>
       </div>
     </div>
-    <div class="catalog-grid">
+    <div class="grid grid-cols-[repeat(12,_minmax(0,_1fr))] gap-4 mt-19 max-[900px]:mt-[58px] max-[600px]:grid-cols-[repeat(2,_minmax(0,_1fr))] max-[600px]:gap-[9px] max-[600px]:mt-[45px]">
       {productos.map((product, index) => (
-        <a class:list={['catalog-item', `catalog-item-${index + 1}`]} href={productWhatsapp(product.title)} target="_blank" rel="noopener noreferrer" aria-label={`Consultar por ${product.title} en WhatsApp`}>
+        <a class:list={["relative min-h-[350px] overflow-hidden bg-[#262b2c] focus-visible:outline-offset-[-5px] [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:[filter:grayscale(1)_brightness(.72)] [&_img]:[transition:transform_.5s_ease,_filter_.5s_ease] [&:hover_img]:[transform:scale(1.025)] [&:hover_img]:[filter:grayscale(.6)_brightness(.84)] after:content-[''] after:absolute after:[inset:40%_0_0] after:[background:linear-gradient(transparent,_rgba(6,8,9,.78))] after:pointer-events-none max-[900px]:min-h-[330px] max-[600px]:col-span-1 max-[600px]:min-h-[235px] max-[600px]:first:col-span-2 max-[600px]:first:min-h-75 max-[600px]:last:col-span-2 max-[600px]:[&_img]:[filter:grayscale(1)_brightness(.77)]", productLayouts[index]]} href={productWhatsapp(product.title)} target="_blank" rel="noopener noreferrer" aria-label={`Consultar por ${product.title} en WhatsApp`}>
           <img src={product.image} alt="" loading="lazy" width="800" height="600" />
-          <div class="catalog-item-label"><span>{product.title}</span><span aria-hidden="true">↗</span></div>
+          <div class="absolute z-1 bottom-[25px] left-[27px] right-[27px] flex justify-between items-end gap-5 font-display text-[clamp(30px,_2.7vw,_43px)] font-semibold leading-[1] uppercase [&_span:last-child]:text-copper [&_span:last-child]:font-body [&_span:last-child]:text-[24px] [&_span:last-child]:font-normal max-[600px]:bottom-[14px] max-[600px]:left-[14px] max-[600px]:right-[14px] max-[600px]:text-[27px] max-[600px]:[&_span:last-child]:text-[19px]"><span>{product.title}</span><span aria-hidden="true">↗</span></div>
         </a>
       ))}
     </div>
