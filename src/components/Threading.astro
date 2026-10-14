@@ -1,7 +1,8 @@
 ---
 import ArrowRight from './icons/ArrowRight.astro';
+import { Image } from 'astro:assets';
+import threadingConcept from '../images/roscado-concept.png';
 const whatsapp = 'https://wa.me/5491126790946?text=Hola%2C%20quisiera%20consultar%20por%20roscado%20de%20ca%C3%B1os.';
-const grooves = Array.from({ length: 17 }, (_, index) => 670 + index * 17);
 ---
 
 <section id="roscado" data-threading class="overflow-hidden border-t border-white/10 bg-[#14191a] py-[clamp(92px,10vw,150px)]" aria-labelledby="threading-title">
@@ -13,22 +14,11 @@ const grooves = Array.from({ length: 17 }, (_, index) => 670 + index * 17);
       <a class="group mt-8 inline-flex min-h-14 items-center justify-between gap-7 border border-copper/60 px-6 py-4 text-xs font-bold text-copper transition-colors duration-200 hover:bg-copper hover:text-ink" href={whatsapp} target="_blank" rel="noopener noreferrer">Consultar por roscado<ArrowRight class="size-5 -rotate-45 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></a>
     </div>
     <figure class="min-w-0">
-      <div data-thread-stage class="relative flex min-h-100 items-center overflow-hidden border border-[#4d5656] bg-[#1b2223] max-[600px]:min-h-72">
+      <div data-thread-stage class="relative min-h-100 overflow-hidden border border-[#4d5656] bg-[#1b2223] max-[600px]:min-h-72">
+        <Image src={threadingConcept} format="webp" alt="Vista conceptual de un caño de acero con rosca exterior en un extremo" class="absolute inset-0 h-full w-full object-cover object-[62%_center] brightness-65 max-[600px]:object-[72%_center]" />
+        <Image src={threadingConcept} format="webp" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover object-[62%_center] [clip-path:inset(0_var(--thread-hidden,0%)_0_0)] motion-reduce:[clip-path:none] max-[600px]:object-[72%_center]" />
+        <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(12,16,17,.72),transparent_23%,transparent_76%,rgba(12,16,17,.7))]"></div>
         <div class="absolute inset-x-6 top-6 flex justify-between gap-4 text-[10px] font-medium tracking-[.08em] text-steel max-[600px]:inset-x-4 max-[600px]:text-[8px]"><span>ROSCADO DE CAÑOS</span><span class="text-copper">EL EXTREMO TOMA FORMA</span></div>
-        <svg class="w-full" viewBox="0 0 1100 420" fill="none" aria-hidden="true">
-          <path d="M65 145H1000V275H65" fill="#313b3d" stroke="#b3bcba" stroke-width="2" />
-          <path d="M65 163H1000M65 257H1000" stroke="#647472" stroke-width="1" />
-          <path d="M1000 145V275" stroke="#d5d9d7" stroke-width="4" />
-          <g data-thread-grooves class="[clip-path:inset(0_0_0_var(--thread-hidden,0%))] motion-reduce:[clip-path:none]" stroke="#d8b086" stroke-width="3">
-            {grooves.map(x => <path d={`M${x} 145L${x + 23} 275`} />)}
-          </g>
-          <g class="[transform:translateX(var(--tool-offset,0px))] motion-reduce:transform-none">
-            <path d="M610 92H685V145H657V275H685V328H610V275H638V145H610Z" fill="#171c1d" stroke="#d8b086" stroke-width="2" />
-            <path d="M620 106H674M620 314H674" stroke="#d8b086" stroke-opacity=".5" stroke-width="2" />
-          </g>
-          <path d="M695 355H987M977 345L987 355L977 365" stroke="#d8b086" stroke-width="2" />
-          <path d="M80 355H555" stroke="#647472" stroke-width="1" />
-        </svg>
         <div class="absolute inset-x-6 bottom-6 flex justify-between gap-4 text-[10px] text-steel max-[600px]:inset-x-4 max-[600px]:text-[9px]"><span>CAÑO</span><span class="text-copper">ZONA ROSCADA</span></div>
       </div>
       <figcaption class="mt-3 text-[11px] leading-relaxed text-[#adb7b4]">Esquema conceptual del roscado. El tipo de rosca y los detalles se definen para cada trabajo.</figcaption>
@@ -41,9 +31,7 @@ const grooves = Array.from({ length: 17 }, (_, index) => 670 + index * 17);
   const section = document.querySelector<HTMLElement>('[data-threading]');
   if (section) bindProcessMotion(section, progress => {
     section.style.setProperty('--thread-hidden', `${(1 - progress) * 100}%`);
-    section.style.setProperty('--tool-offset', `${(1 - progress) * 280}px`);
   }, () => {
     section.style.removeProperty('--thread-hidden');
-    section.style.removeProperty('--tool-offset');
   }, { compact: true });
 </script>
